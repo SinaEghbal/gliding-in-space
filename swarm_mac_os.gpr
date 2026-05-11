@@ -44,16 +44,27 @@ project Swarm_Mac_OS is
       case Specific_Build_Modes is
 
          when "Production" =>
-            for Default_Switches ("ada") use ("-bind_at_load", "-framework", "/GLUT", "/System/Library/Frameworks/OpenGL.framework/Libraries/libGL.dylib", 
-               "/System/Library/Frameworks/OpenGL.framework/Libraries/libGLU.dylib", "-lm");
+            for Default_Switches ("ada") use (
+               "-framework", "OpenGL",
+               "-framework", "GLUT",
+               "-lm"
+            );
 
          when "Development" =>
-            for Default_Switches ("ada") use ("-bind_at_load", "-framework", "/GLUT", "/System/Library/Frameworks/OpenGL.framework/Libraries/libGL.dylib", 
-               "/System/Library/Frameworks/OpenGL.framework/Libraries/libGLU.dylib", "-lm", "-g");
+            for Default_Switches ("ada") use (
+               "-framework", "OpenGL",
+               "-framework", "GLUT",
+               "-lm",
+               "-g"
+            );
 
          when "Performance" =>
-            for Default_Switches ("ada") use ("-bind_at_load", "-framework", "/GLUT", "/System/Library/Frameworks/OpenGL.framework/Libraries/libGL.dylib", 
-               "/System/Library/Frameworks/OpenGL.framework/Libraries/libGLU.dylib", "-lm");
+            for Default_Switches ("ada") use (
+               "-framework", "OpenGL",
+               "-framework", "GLUT",
+               "-lm"
+            );
+
       end case;
    end Linker;
 
